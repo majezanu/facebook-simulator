@@ -1,0 +1,28 @@
+.post-input{
+    margin: 8px 8px 8px 8px;
+}
+.post-input-card-header {
+    background-color: #f5f6f7;
+    border-bottom: 1px solid #dddfe2;
+    border-radius: 2px 2px 0 0;
+    font-weight: bold;
+    
+}
+.post-input-card-header-text {
+    color: #4b4f56;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+}
+
+.post-input-textarea {
+    border: none;
+    overflow: hidden;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: black;
+    resize: vertical; /*remove the resize handle on the bottom right*/
+}
