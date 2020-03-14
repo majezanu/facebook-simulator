@@ -15,6 +15,10 @@ server.listen(env.PORT, (req, res) => {
 });
 
 app.use(express.static('dist'));
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
+app.use('/js', express.static(__dirname + '/node_modules/popper.js/dist'));
+app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.set('views', './src/server/views');
 app.set('view engine', 'pug');
 
