@@ -6,6 +6,11 @@ html(lang="es")
         link(rel='stylesheet', href='/css/bootstrap.min.css')
         block extrahead
     body
+        header
+            nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
+                a.navbar-brand(href='#') Facebook Simulate
+                form.form-inline(action="")
+                    input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
         block content
         script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js")
         script(src="./js/main.js")
