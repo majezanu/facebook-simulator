@@ -1,6 +1,6 @@
 {
   "name": "facebook-simulator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is an application for simulate Facebook",
   "main": "index.js",
   "scripts": {
