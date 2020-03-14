@@ -4,7 +4,8 @@
   "description": "This is an application for simulate Facebook",
   "main": "index.js",
   "scripts": {
-    "build:client": "node rollup.config.js",
+    "build:client": "cd client && npm run build",
+    "start:client": "cd client && npm start",
     "dev": "nodemon --exec babel-node index.js",
     "dev:debug": "nodemon --inspect=0.0.0.0:9229 --exec babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,14 +21,11 @@
   "license": "ISC",
   "dependencies": {
     "acorn": "^5.7.4",
-    "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "jquery": "^3.4.1",
     "moment": "^2.24.0",
-    "popper.js": "^1.16.1",
-    "pug": "^2.0.4",
+    "mongoose": "^5.9.4",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0"
   },
@@ -35,12 +33,7 @@
     "@babel/core": "^7.8.7",
     "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
-    "nodemon": "^2.0.2",
-    "rollup": "^2.0.3",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-filesize": "^6.2.1",
-    "rollup-plugin-progress": "^1.1.1",
-    "rollup-plugin-terser": "^5.3.0",
-    "uglifycss": "0.0.29"
+    "link-module-alias": "^1.2.0",
+    "nodemon": "^2.0.2"
   }
 }
