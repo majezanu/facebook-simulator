@@ -8,13 +8,21 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
+    "bootstrap": "^4.4.1",
+    "node-sass": "^4.13.1",
+    "react-router-dom": "^5.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "link-module-alias"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,5 +39,11 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8000"
+  "_moduleAliases": {
+    "atoms": "src/components/atoms"
+  },
+  "proxy": "http://localhost:8000",
+  "devDependencies": {
+    "link-module-alias": "^1.2.0"
+  }
 }

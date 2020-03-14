@@ -1,0 +1,31 @@
+.post{
+    margin: 8px 8px 8px 8px;
+}
+
+.post-autor{
+    margin: 4px 0 0 0;
+}
+
+.post-card-footer-text {
+    color: #385898;;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    background: none;
+}
+.post-timestamp{
+    color: black;
+}
+
+.post-content {
+    color: black;
+    font-size: 16px;
+}
+
+.post-like-btn {
+    display: inline;
+    border: none;
+    background: none;
+    padding: 0 4px 0 0;
+}

@@ -1,44 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faVideo, 
+        faTicketAlt, 
+        faClock, 
+        faFileInvoiceDollar,
+        faHeart} from '@fortawesome/free-solid-svg-icons';
+import {faHeart as regularHear} from '@fortawesome/free-regular-svg-icons';
+import RouterSwitch from './components/organisms/Router/Router';
 
-class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      list: []
-    }
-  }
-  componentDidMount() {
-    this.getList();
-  }
-
-  // Retrieves the list of items from the Express app
-  getList = () => {
-    fetch('/api/getList')
-    .then(res => res.json())
-    .then(list => this.setState({ list }))
-  }
-  render() {
-    return (
+library.add(faVideo, faTicketAlt, faClock, faFileInvoiceDollar, faHeart, regularHear);
+function App() {
+  return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Navbar/> */}
+      <div className='App-header'>
+          <RouterSwitch></RouterSwitch>
+      </div>
+      
     </div>
-    )
-  };
+  );
 }
 
 export default App;
