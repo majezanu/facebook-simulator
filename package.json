@@ -1,11 +1,12 @@
 {
   "name": "facebook-simulator",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "This is an application for simulate Facebook",
   "main": "index.js",
   "scripts": {
     "build:client": "cd client && npm run build",
     "start:client": "cd client && npm start",
+    "install:client": "cd client && npm install",
     "dev": "nodemon --exec babel-node index.js",
     "dev:debug": "nodemon --inspect=0.0.0.0:9229 --exec babel-node index.js",
     "postinstall": "link-module-alias",
