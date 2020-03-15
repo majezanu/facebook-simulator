@@ -8,6 +8,8 @@ import mongoose from 'mongoose';
 import apiRouter from './src/routes/api/api-router';
 import bodyParser from 'body-parser';
 import {EVENTS} from './common/constants';
+import bearerToken from 'express-bearer-token';
+
 dotenv.config();
 const env = process.env;
 const app = express();
@@ -25,6 +27,7 @@ app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/js', express.static(__dirname + '/node_modules/popper.js/dist'));
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 
+app.use(bearerToken({headerKey: 'Bearer'}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
