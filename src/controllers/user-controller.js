@@ -1,17 +1,12 @@
 import userService from '../services/user-service';
-import utils from '../utils/utils';
 
-const authorize = (req, res) => {
+const authorize = async (req, res) => {
     const {username, password} = req.body;
-    let canEnter = userService.canEnter(username, password);
-    if(!canEnter) {
+    let token = await userService.canEnter(username, password);
+    if(token == null) {
         res.status(401).send({error: 'Unauthorized'});
     } 
-    const user = userService.getUSer(username);
-    const token = utils.createToken(user);
-    res.send({
-        token
-    });
+    res.send({token});
 }
 
 const register = async (req, res) => {
