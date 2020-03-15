@@ -1,8 +1,12 @@
 import User from '../models/users';
 import utils from '../utils/utils';
-const canEnter = (username, password) => {
-    let user = getUsers().find(user => user.username === username);
-    return user && utils.matchHash(password, user.password) && user.active;
+const canEnter = async (username, password) => {
+    let user = await User.findOne({username}).select('+password');
+    let token = null;
+    if(user && utils.matchHash(password, user.password)){
+      token = utils.createToken({user});
+    }
+    return token;
 }
 
 const register = async (name, email, username, password) => {
