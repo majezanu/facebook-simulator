@@ -37,6 +37,17 @@ const decodeToken = (err, decoded) => {
   }
   return decoded.user;
 }
+const userFromToken = async (token) => {
+  let userDecoded = utils.verifyToken(token, decodeToken);
+  if(!userDecoded) {
+    return null;
+  }
+  let user = await User.findById(userDecoded._id);
+  if(!user) {
+    return null;
+  }
+  return user;
+}
 const validateToken = async (token, socketId) => {
   let userDecoded = utils.verifyToken(token, decodeToken);
   if(!userDecoded) {
@@ -56,4 +67,4 @@ const getUserBy = async(query) => {
   let user = await User.findOne(query);
   return user;
 }
-export default { canEnter, register, list, validateToken, getUserBy };
+export default { canEnter, register, list, validateToken, getUserBy, userFromToken };

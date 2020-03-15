@@ -1,22 +1,11 @@
 import React, {useState, useEffect } from 'react';
 import './Post.css';
-import Icon from '@atoms/Icon/Icon';
-import Button from '@atoms/Button/Button';
+import Icon from 'atoms/Icon/Icon';
+import Button from 'atoms/Button/Button';
+import moment from 'moment';
+import 'moment/locale/es';
 const Post = (props) => {
-    const [post, setPost] = useState({
-        autor: 'Manuel Zavala',
-        time: '5 m',
-        content: 'Me encanta esta vida contigo, '+
-                 'no la cambiaría por nada, me haces feliz, '+
-                 'te hago feliz, nos hacemos felices, compartimos '+
-                 'nuestra felicidad y juntos hemos estado siendo '+
-                 'mejores versiones de nosotros mismos. Te Amo. '+
-                 'Y como a diario te digo, ¿Te casas conmigo otra vez?, '+
-                 'porque yo sí, Grisel Díaz.',
-        likes: 4,
-        userHasLiked: false
-    });
-
+    const [post, setPost] = useState(props.post);
     return (
         <div className="card post"  style={{maxWidth: '600px'}}>
             <div className="card-body text-left post-content">
@@ -26,10 +15,10 @@ const Post = (props) => {
                 <div className="row">
                     <div className="col post-autor">
                         <a href="">
-                            {post.autor} 
+                            {post.user.name} 
                             <br/>
                             <span className='post-timestamp'>
-                                {post.time}
+                                {moment(post.createdAt).locale('es').calendar()}
                             </span> 
                         </a>
                     </div>
