@@ -6,6 +6,8 @@ import socketio from 'socket.io';
 import socketHandler from './src/server/utils/socketHandler';
 import mongoose from 'mongoose';
 import apiRouter from './src/routes/api/api-router';
+import bodyParser from 'body-parser';
+import {EVENTS} from './common/constants';
 dotenv.config();
 const env = process.env;
 const app = express();
@@ -15,10 +17,6 @@ db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('connected to database'))
 
 const server = http.createServer(app);
-server.listen(env.PORT, (req, res) => {
-    console.log(`Server running on port: ${env.PORT}`);
-    console.log('Press Ctrl + C for stop server');
-});
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -28,12 +26,17 @@ app.use('/js', express.static(__dirname + '/node_modules/popper.js/dist'));
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 
 
-app.use(express.json());
-app.use(express.urlencoded());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 
-const io = socketio(server );
+server.listen(env.PORT, (req, res) => {
+    console.log(`Server running on port: ${env.PORT}`);
+    console.log('Press Ctrl + C for stop server');
+});
+
+const io = socketio(server);
 io.set('transports', ['websockets', 'polling']);
-io.on('connection', socketHandler(io));
+io.on(EVENTS.CONNECTION, socketHandler(io));
 
 app.use('/api',apiRouter);
 

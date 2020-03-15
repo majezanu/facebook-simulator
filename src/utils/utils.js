@@ -16,4 +16,6 @@ const createToken = (payload) => jwt.sign(payload, TOKEN_SECRET, {
 
 const cryptPass = (plainPassword) => bcrypt.hashSync(plainPassword, SALT_ROUNDS);
 
-export default {matchHash, createToken, cryptPass};
+const verifyToken = (token, callback) => jwt.verify(token,TOKEN_SECRET, (err, decoded) => callback(err, decoded));
+
+export default {matchHash, createToken, cryptPass, verifyToken};
