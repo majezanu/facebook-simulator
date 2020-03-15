@@ -22,6 +22,16 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 6,
         select: false
+    },
+    active: {
+        type: Boolean,
+        required: true,
+        default: true,
+    },
+    online: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 });
 const User = mongoose.model('User', userSchema);
