@@ -24,7 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "link-module-alias"
+    "postinstall": "link-module-alias",
+    "preinstall": "command -v link-module-alias && link-module-alias clean || true"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,7 +43,12 @@
     ]
   },
   "_moduleAliases": {
-    "atoms": "src/components/atoms"
+    "atoms": "src/components/atoms",
+    "molecules": "src/components/molecules",
+    "organisms": "src/components/organisms",
+    "pages": "src/components/pages",
+    "services": "src/services",
+    "common": "src/common"
   },
   "proxy": "http://localhost:8000",
   "devDependencies": {
