@@ -5,6 +5,7 @@ import path from 'path';
 import socketio from 'socket.io';
 import socketHandler from './src/server/utils/socketHandler';
 import mongoose from 'mongoose';
+import apiRouter from './src/routes/api/api-router';
 dotenv.config();
 const env = process.env;
 const app = express();
@@ -34,11 +35,7 @@ const io = socketio(server );
 io.set('transports', ['websockets', 'polling']);
 io.on('connection', socketHandler(io));
 
-app.get('/api/getList', (req,res) => {
-    var list = ["item1", "item2", "item3"];
-    res.json(list);
-    console.log('Sent list of items');
-});
+app.use('/api',apiRouter);
 
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
