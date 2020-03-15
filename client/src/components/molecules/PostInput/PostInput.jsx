@@ -1,11 +1,24 @@
 import React, {useState, useEffect } from 'react';
-import Textarea from '../../atoms/Textarea/Textarea';
-import Button from '../../atoms/Button/Button';
+import Textarea from 'atoms/Textarea/Textarea';
+import Button from 'atoms/Button/Button';
 import './PostInput.css';
 const PostInput = (props) => {
     const [post, setPost] = useState({
         content: ''
     });
+
+    const setData = (e) => {
+        const key = e.target.id;
+        const value = e.target.value;
+        setPost(prevState => {
+            return {...prevState, [key]: value}
+        });
+    }
+    const publishPost = (e) => {
+        e.preventDefault();
+        props.publishPost(post);
+        setPost({content: ''});
+    }
 
     return (
         <div className="card post-input"  style={{maxWidth: '600px'}}>
@@ -14,11 +27,14 @@ const PostInput = (props) => {
             </div>
             <div className="card-body">
                 <Textarea 
+                    id='content'
+                    name='content'
                     style='post-input-textarea'
-                    name='post-content' 
-                    placeholder='¿Qué estás pensando?'/>
+                    placeholder='¿Qué estás pensando?'
+                    handleChange={setData}
+                    value={post.content}/>
                 <hr/>
-                <Button>Publicar</Button>
+                <Button action={publishPost}>Publicar</Button>
                 
             </div>
         </div>

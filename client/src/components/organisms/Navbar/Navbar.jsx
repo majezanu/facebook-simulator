@@ -1,8 +1,8 @@
 import React, {useState } from 'react';
-import Icon from '../../atoms/Icon/Icon';
-import Image from '../../atoms/Image/Image';
-import Input from '../../atoms/Input/Input';
-import Button from '../../atoms/Button/Button';
+
+import Image from 'atoms/Image/Image';
+import Input from 'atoms/Input/Input';
+import Button from 'atoms/Button/Button';
 import './Navbar.css';
 
 const Navbar = (props) => {
