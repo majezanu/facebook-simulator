@@ -1,4 +1,4 @@
-import userService from '../services/user-service';
+import userService from 'services/user-service';
 
 const authorize = async (req, res) => {
     const {username, password} = req.body;

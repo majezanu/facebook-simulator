@@ -5,9 +5,9 @@ import path from 'path';
 import socketio from 'socket.io';
 import socketHandler from './src/server/utils/socketHandler';
 import mongoose from 'mongoose';
-import apiRouter from './src/routes/api/api-router';
+import apiRouter from 'routes/api/api-router';
 import bodyParser from 'body-parser';
-import {EVENTS} from './common/constants';
+import {EVENTS} from 'common/constants';
 import bearerToken from 'express-bearer-token';
 
 dotenv.config();
@@ -44,7 +44,7 @@ io.on(EVENTS.CONNECTION, socketHandler(io));
 app.use('/api',apiRouter);
 
 app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+    res.sendFile(path.join(__dirname,'client/build/index.html'));
 });
 
 app.use((req,res,nex) => {

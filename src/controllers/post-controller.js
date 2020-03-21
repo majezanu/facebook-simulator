@@ -1,4 +1,4 @@
-import postService from '../services/post-service';
+import postService from 'services/post-service';
 
 const list = async (req, res) => {
     try {

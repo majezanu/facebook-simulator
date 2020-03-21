@@ -4,14 +4,19 @@
   "description": "This is an application for simulate Facebook",
   "main": "index.js",
   "scripts": {
+    "postinstall": "link-module-alias",
+    "preinstall": "command -v link-module-alias && link-module-alias clean || true",
+    "link:modules": "npm run preinstall && npm run postinstall",
     "build:client": "cd client && npm run build",
     "start:client": "cd client && npm start",
     "install:client": "cd client && npm install",
     "dev": "nodemon --exec babel-node index.js",
     "dev:debug": "nodemon --inspect=0.0.0.0:9229 --exec babel-node index.js",
-    "postinstall": "link-module-alias",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "npm run build:client && node index.js"
+    "serve": "npm run install:client && npm run build:client && ./node_modules/.bin/babel-node index.js",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel"
   },
   "keywords": [
     "Facebook",
@@ -36,15 +41,20 @@
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
     "@babel/core": "^7.8.7",
     "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.8.7",
+    "babel-plugin-module-resolver": "^4.0.0",
     "link-module-alias": "^1.2.0",
     "nodemon": "^2.0.2"
   },
   "_moduleAliases": {
     "routes": "src/routes",
     "controllers": "src/controllers",
-    "services": "src/services"
+    "services": "src/services",
+    "common": "src/common",
+    "models": "src/models"
   }
 }

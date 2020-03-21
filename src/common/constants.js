@@ -1,4 +1,4 @@
-export const EVENTS = {
+const EVENTS = {
     CONNECT: 'connect',
     DISCONNECT: 'disconnect',
     CONNECTION: 'connection',
@@ -9,3 +9,5 @@ export const EVENTS = {
     CREATE_POST: 'CREATE_POST',
     BROADCAST_POST: 'BROADCAST_POST'
 };
+
+exports.EVENTS = EVENTS;
