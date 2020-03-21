@@ -32,7 +32,7 @@ app.use(bearerToken({headerKey: 'Bearer'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
-server.listen(env.PORT, (req, res) => {
+server.listen(env.PORT || 8080, (req, res) => {
     console.log(`Server running on port: ${env.PORT}`);
     console.log('Press Ctrl + C for stop server');
 });
