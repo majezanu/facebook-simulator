@@ -17,7 +17,8 @@
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
-    "socket.io-client": "^2.3.0"
+    "socket.io-client": "^2.3.0",
+    "link-module-alias": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -50,8 +51,5 @@
     "services": "src/services",
     "common": "src/common"
   },
-  "proxy": "http://localhost:8000",
-  "devDependencies": {
-    "link-module-alias": "^1.2.0"
-  }
+  "proxy": "http://localhost:8000"
 }
