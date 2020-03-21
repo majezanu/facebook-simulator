@@ -10,7 +10,8 @@
     "dev": "nodemon --exec babel-node index.js",
     "dev:debug": "nodemon --inspect=0.0.0.0:9229 --exec babel-node index.js",
     "postinstall": "link-module-alias",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "npm run build:client && node index.js"
   },
   "keywords": [
     "Facebook",

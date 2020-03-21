@@ -1,8 +1,9 @@
 import React, {useState, useEffect } from 'react'
-import Login from '../../molecules/Login/Login'
-import userService from '../../../services/UserService';
-import socketService from '../../../services/socketService';
-import {EVENTS} from '../../../common/constants';
+import Login from 'molecules/Login/Login';
+import userService from 'services/UserService';
+import socketService from 'services/socketService';
+import {EVENTS} from 'common/constants';
+import Navbar from 'organisms/Navbar/Navbar';
 const LoginPage = (props) => {    
     const [loading, setLoading] = useState(false);
 
@@ -24,6 +25,7 @@ const LoginPage = (props) => {
 
     return (
         <div className="container-fluid">
+             <Navbar></Navbar>
             <Login onLoginAction={onLoginAction} loading={loading}></Login>
         </div>
     )
