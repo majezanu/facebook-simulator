@@ -1,7 +1,7 @@
-import {EVENTS} from '../../../common/constants';
+import {EVENTS} from 'common/constants';
 import moment from 'moment';
-import userService from '../../services/user-service';
-import postService from '../../services/post-service';
+import userService from 'services/user-service';
+import postService from 'services/post-service';
 moment.locale('es-MX')
 
 export default (io) => (socket) => {

@@ -1,5 +1,5 @@
 import express from 'express';
-import userController from "../../controllers/user-controller";
+import userController from "controllers/user-controller";
 const router = express.Router();
 
 router.post('/login', async (req, res) => userController.authorize(req,res));

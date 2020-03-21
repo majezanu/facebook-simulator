@@ -1,6 +1,6 @@
-import Post from '../models/posts';
+import Post from 'models/posts';
 import userService from './user-service';
-import User from '../models/users';
+import User from 'models/users';
 
 const register = async (content, token) => {
     const user = await userService.userFromToken(token);

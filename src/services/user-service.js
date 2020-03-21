@@ -1,4 +1,4 @@
-import User from '../models/users';
+import User from 'models/users';
 import utils from '../utils/utils';
 const canEnter = async (username, password) => {
     let user = await User.findOne({username}).select('+password');
