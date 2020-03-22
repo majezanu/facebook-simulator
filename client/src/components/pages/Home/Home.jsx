@@ -38,6 +38,11 @@ class Home extends Component {
         post.token = localStorage.getItem('token');
         socketService.socket.emit(EVENTS.SEND_LIKE, post);
     }
+
+    deletePostAction = (post) => {
+        post.token = localStorage.getItem('token');
+        socketService.socket.emit(EVENTS.DELETE_POST, post);
+    }
     render () {
         return <div className="container-fluid">
             <Navbar></Navbar>
@@ -49,7 +54,11 @@ class Home extends Component {
                             <PostInput publishPost={this.postInputAction}></PostInput>
                             {
                                 this.state.posts.map(post => {
-                                    return <Post key={post._id} post={post} sendLikeAction={this.sendLikeAction}></Post>
+                                    return <Post 
+                                            key={post._id} 
+                                            post={post} 
+                                            sendLikeAction={this.sendLikeAction}
+                                            deletePostaction={this.deletePostAction}></Post>
                                 })
                             }
                         </div>

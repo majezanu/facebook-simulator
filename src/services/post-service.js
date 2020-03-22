@@ -34,6 +34,17 @@ const deleteItem = async(id) => {
   }
 }
 
+const softDeletePost = async (id) => {
+  try {
+    const post = await getOne(id);
+    post.active = !post.active;
+    await post.save();
+    return post;
+  } catch (error) {
+    throw error;
+  }
+}
+
 const getOne = async (id) => {
   try {
     const post = await Post.findById(id).populate(['user', 'likes']);
@@ -43,4 +54,4 @@ const getOne = async (id) => {
   }
 }
 
-export default { register, list, deleteItem, getOne };
+export default { register, list, deleteItem, getOne, softDeletePost };

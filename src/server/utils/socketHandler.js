@@ -22,6 +22,11 @@ export default (io) => (socket) => {
         io.emit(EVENTS.POST_UPDATED, post);
     });
 
+    socket.on(EVENTS.DELETE_POST, async (data) => {
+        let post = await postService.softDeletePost(data._id);
+        io.emit(EVENTS.POST_UPDATED, post);
+    });
+
     setTimeout(function(){
         if (!socket.auth) {
           console.log("Disconnecting socket ", socket.id);

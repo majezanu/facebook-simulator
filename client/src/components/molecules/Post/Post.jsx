@@ -30,6 +30,11 @@ class Post  extends Component{
         //setPost({userHasLiked: false});
     }
 
+    deletePost = (e) => {
+        e.preventDefault();
+        this.props.deletePostaction(this.state.post);
+    }
+
     renderPost = () => {
         return <div className="card post"  style={{maxWidth: '600px'}}>
         <div className="card-body text-left post-content">
@@ -50,6 +55,9 @@ class Post  extends Component{
                     <div className="container">
                         <div className="row">
                             <div className="col">
+                                <Button style='btn post-like-btn' action={this.deletePost}>
+                                    <Icon icon='trash' type='fas'></Icon>
+                                </Button>
                                 <Button style='btn post-like-btn' action={this.sendLike}>
                                     <Icon icon='heart' type={this.state.post.userHasLiked ? 'fas' : 'far'}></Icon>
                                 </Button>
