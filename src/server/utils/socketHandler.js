@@ -2,6 +2,7 @@ import {EVENTS} from 'common/constants';
 import moment from 'moment';
 import userService from 'services/user-service';
 import postService from 'services/post-service';
+import likeService from 'services/like-service';
 moment.locale('es-MX')
 
 export default (io) => (socket) => {
@@ -14,6 +15,13 @@ export default (io) => (socket) => {
         let post = await postService.register(data.content, data.token);
         io.emit(EVENTS.BROADCAST_POST, post);
     });
+
+    socket.on(EVENTS.SEND_LIKE, async (data) =>{
+        let like = await likeService.register(data._id, data.token);
+        let post = await postService.getOne(data._id);
+        io.emit(EVENTS.POST_UPDATED, post);
+    });
+
     setTimeout(function(){
         if (!socket.auth) {
           console.log("Disconnecting socket ", socket.id);
