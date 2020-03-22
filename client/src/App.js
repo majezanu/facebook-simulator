@@ -5,11 +5,19 @@ import { faVideo,
         faTicketAlt, 
         faClock, 
         faFileInvoiceDollar,
-        faHeart} from '@fortawesome/free-solid-svg-icons';
+        faHeart,
+        faTrash} from '@fortawesome/free-solid-svg-icons';
 import {faHeart as regularHear} from '@fortawesome/free-regular-svg-icons';
 import RouterSwitch from './components/organisms/Router/Router';
 
-library.add(faVideo, faTicketAlt, faClock, faFileInvoiceDollar, faHeart, regularHear);
+library.add(
+  faVideo, 
+  faTicketAlt, 
+  faClock, 
+  faFileInvoiceDollar, 
+  faHeart, 
+  regularHear,
+  faTrash);
 function App() {
   return (
     <div className="App">

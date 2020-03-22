@@ -13,7 +13,7 @@ const postSchema = new mongoose.Schema({
         {type: mongoose.Schema.Types.ObjectId,ref:'Like'}
     ],
     active: {
-        type: String,
+        type: Boolean,
         required: false,
         default: true
     }
