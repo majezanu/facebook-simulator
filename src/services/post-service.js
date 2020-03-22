@@ -18,7 +18,7 @@ const register = async (content, token) => {
 
 const list = async () => {
   try {
-    const posts = await Post.find().populate('user');
+    const posts = await Post.find().populate(['user', 'likes']);
     return posts;
   } catch (err) {
     throw err;
@@ -33,4 +33,14 @@ const deleteItem = async(id) => {
     throw err;
   }
 }
-export default { register, list, deleteItem };
+
+const getOne = async (id) => {
+  try {
+    const post = await Post.findById(id).populate(['user', 'likes']);
+    return post;
+  } catch (err) {
+    throw err;
+  }
+}
+
+export default { register, list, deleteItem, getOne };

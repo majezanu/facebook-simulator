@@ -32,6 +32,12 @@ class Home extends Component {
         post.token = localStorage.getItem('token');
         socketService.socket.emit(EVENTS.CREATE_POST, post);
     } 
+
+    sendLikeAction = (post) => {
+        console.log(post);
+        post.token = localStorage.getItem('token');
+        socketService.socket.emit(EVENTS.SEND_LIKE, post);
+    }
     render () {
         return <div className="container-fluid">
             <Navbar></Navbar>
@@ -43,7 +49,7 @@ class Home extends Component {
                             <PostInput publishPost={this.postInputAction}></PostInput>
                             {
                                 this.state.posts.map(post => {
-                                    return <Post key={post._id} post={post}></Post>
+                                    return <Post key={post._id} post={post} sendLikeAction={this.sendLikeAction}></Post>
                                 })
                             }
                         </div>

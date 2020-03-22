@@ -1,4 +1,4 @@
-export const EVENTS = {
+const EVENTS = {
     CONNECT: 'connect',
     DISCONNECT: 'disconnect',
     CONNECTION: 'connection',
@@ -7,5 +7,10 @@ export const EVENTS = {
     UNAUTHORIZED: 'UNAUTHORIZED',
     NEW_USER_CONNECTED: 'NEW_USER_CONNECTED',
     CREATE_POST: 'CREATE_POST',
-    BROADCAST_POST: 'BROADCAST_POST'
+    BROADCAST_POST: 'BROADCAST_POST',
+    SEND_LIKE: 'SEND_LIKE',
+    LIKE_SAVED: 'LIKE_SAVED',
+    POST_UPDATED: 'POST_UPDATED'
 };
+
+exports.EVENTS = EVENTS;
